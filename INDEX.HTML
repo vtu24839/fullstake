@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Registration Form</h2>
+
+    <form action="/register" method="post" aria-label="Student Registration Form">
+
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Academic Details</legend>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="">--Select Department--</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact Information</legend>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" 
+                   placeholder="10-digit number" 
+                   pattern="[0-9]{10}" 
+                   title="Enter a valid 10-digit phone number" required>
+        </fieldset>
+
+        <div class="form-actions">
+            <button type="submit">Register</button>
+            <button type="reset">Clear</button>
+        </div>
+
+    </form>
+
+    <p id="confirmation" style="display:none; color:green;">
+        ✅ Registration successful!
+    </p>
+
+    <br>
+    <a href="/students">View All Students</a>
+</div>
+
+<script>
+    // Simple confirmation message after submission
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        document.getElementById("confirmation").style.display = "block";
+    });
+</script>
+
+</body>
+</html>
